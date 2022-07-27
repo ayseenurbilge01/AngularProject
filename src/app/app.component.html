@@ -1,5 +1,5 @@
 <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />    
-<table class="minimalistBlack" *ngIf="records.length > 0">    
+<table class="styled-table" *ngIf="records.length > 0">    
   <thead>    
     <tr>    
       <th>EmpID </th>    
@@ -19,27 +19,8 @@
   </tbody>    
 </table>     
 
-<table class="minimalistBlack" *ngIf="outputarray.length > 0">    
-  <thead>    
-    <tr>    
-      <th>EmpID </th>    
-      <th>empId2 </th>    
-      <th>projectid </th>    
-      <th>Day </th>     
-    </tr>    
-  </thead>    
-  <tbody>    
-    <tr *ngFor="let rec of outputarray;let i = index;">    
-      <td> <span>{{rec.EmpID}}</span> </td>    
-      <td> <span>{{rec.EmpID2}}</span> </td>    
-      <td> <span>{{rec.ProjectID}}</span> </td>    
-      <td> <span>{{rec.Day}}</span> </td>    
-      
-    </tr>    
-  </tbody>    
-</table>    
 
-<table class="minimalistBlack" *ngIf="fOutput.length > 0">    
+<table class="styled-table" *ngIf="fOutput.length > 0">    
   <thead>    
     <tr>    
       <th>EmpID </th>    
