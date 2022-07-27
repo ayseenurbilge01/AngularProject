@@ -10,15 +10,15 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent {
  
-  title = 'Angular7-readCSV';  
-  public Cmp: any[] = [];  
+  Cmp: any[] = [];  
   fOutput!: Array<Output>;  
   outputarray!: Array<Output>;
   dtFrom !: Date;
   dtTo !: Date;
   enBuyuk!: number;
-  
-  public records: any[] = [];  
+  records: any[] = [];  
+
+
   @ViewChild('csvReader') csvReader: any;  
   
   uploadListener($event: any): void {  
@@ -55,24 +55,8 @@ export class AppComponent {
     
   }  
   
-  format(inputDate:Date) {
-    let date, month, year;
-  
-    date = inputDate.getDate();
-    month = inputDate.getMonth() + 1;
-    year = inputDate.getFullYear();
-  
-      date = date
-          .toString()
-          .padStart(2, '0');
-  
-      month = month
-          .toString()
-          .padStart(2, '0');
-  
-    return `${date}-${month}-${year}`;
-  }
-  
+  /* findMax() metodunda Output değerleri arasından gün sayısı en çok olan ekip bulunmuştur. */
+
   findMax()
   {
     let finalOutput: Output[] = [];
@@ -99,6 +83,7 @@ export class AppComponent {
         csvRecord.EmpID = curruntRecord[0].trim();  
         csvRecord.ProjectID = curruntRecord[1].trim();  
         csvRecord.DateFrom = new Date(curruntRecord[2].trim()); 
+        /*Null olan DateTo sütun verileri için bugünün tarihi atanmıştır. */
         if(curruntRecord[3]=="NULL;;;")
           csvRecord.DateTo =today;
         else
@@ -127,7 +112,9 @@ export class AppComponent {
     this.records = [];  
   }  
 
-  
+  /*
+  getDiffBetweenDays() metodu iki tarih arasındaki gün sayısını elde etmek için kullanılmaktadır.
+  */
   getDiffBetweenDays(x:Date, y:Date)
   {
       
@@ -137,6 +124,13 @@ export class AppComponent {
       return (Math.floor((date2 - date1) / (1000 * 60 * 60 * 24))).toString();
   }
 
+  /*
+  createOutputArray() metodu csv dosyasının içerisindeki verilerin iç içe döngü içerisinde çeşitli kontrol blokları ile 
+  ayrıştırılmasını sağlamaktadır.İlk olarak projectID'ler kıyaslanmıştır, eşit olması durumunda EmpID'lerin eşitlik
+  durumu kontrol edilmiştir. Eğer eşit değil ise aynı anda birlikte çalışılan tarihi bulmak için proje başlangıç tarihlerinin
+  en büyüğü, proje bitiş tarihlerinin ise en küçüğü bulunmuştur ve getDiffBetweenDays metodu kullanılarak iki tarih arasındaki
+  gün sayısı hesaplanmıştır. Son olarak Output sınıfımızın constructor'ına gerekli parametreler atanmış ve objeler oluşturulmuştur.
+  */
   createOutputArray()
   {
     let outputarray1 :Output[]=[];
