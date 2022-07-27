@@ -1,3 +1,26 @@
+# About The Project
+This project has been developed for an assigment example for interviews:
+
+# The Task
+Pair of employees who have worked together
+
+Create an application that identifies the pair of employees who have worked together on common projects for the longest period of time.
+
+Input data: A CSV file with data in the following format: EmpID, ProjectID, DateFrom, DateTo
+
+Example data:
+
+   143, 12, 2013-11-01, 2014-01-05
+   218, 10, 2012-05-16, NULL
+   143, 10, 2009-01-01, 2011-04-27
+   ...
+Output format: EmployeeID_1, EmployeeID_2, ProjectID, TotalDays
+
+Sample output:
+
+      143, 145, 218, 8
+      ...
+      
 # AngularProje
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
