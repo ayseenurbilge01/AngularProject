@@ -22,7 +22,7 @@ Sample output:
       143, 145, 218, 8
       ...
       
-# AngularProje
+# Technologies
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
