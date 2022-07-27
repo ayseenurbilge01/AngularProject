@@ -1,5 +1,5 @@
 # About The Project
-This project has been developed for an assigment example for interviews:
+This project made for Aksigorta and Yazılım Köyü's Bootcamp assignment.
 
 # The Task
 Pair of employees who have worked together
